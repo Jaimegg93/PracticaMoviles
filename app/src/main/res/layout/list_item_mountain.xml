@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/iv_mountain_icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/default_mountain_icon"
+        android:contentDescription="Icono de la montaña"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp">
+
+        <TextView
+            android:id="@+id/tv_mountain_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre - Altura"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_concejo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Concejo"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</LinearLayout>
