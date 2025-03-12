@@ -63,5 +63,4 @@
             android:text="Crear usuario"
             android:layout_marginStart="16dp" />
     </LinearLayout>
-
 </LinearLayout>
