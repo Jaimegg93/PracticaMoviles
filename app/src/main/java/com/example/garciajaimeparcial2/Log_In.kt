@@ -13,15 +13,21 @@ class Log_In : AppCompatActivity() {
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+    private lateinit var crearUsuarioButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_log_in)
+
         usernameEditText = findViewById(R.id.username)
         passwordEditText = findViewById(R.id.password)
+
         loginButton = findViewById(R.id.login)
         loginButton.setOnClickListener { handleLogin() }
+
+        crearUsuarioButton = findViewById(R.id.crearUsuario)
+        crearUsuarioButton.setOnClickListener { handleCrearUsuario() }
     }
 
     private fun handleLogin() {
@@ -51,5 +57,10 @@ class Log_In : AppCompatActivity() {
                 .setPositiveButton("OK", null)
                 .show()
         }
+    }
+
+    private fun handleCrearUsuario() {
+        val intent = Intent(this, CrearUsuario::class.java)
+        startActivity(intent)
     }
 }

@@ -14,9 +14,13 @@ class MontaniasActivity : AppCompatActivity() {
     private lateinit var btnAnadirMontana: Button
 
     private lateinit var mountainDB: MountainDatabaseHelper
+    private lateinit var userDB: UserDatabaseHelper
     private lateinit var currentUser: String
+
     private var isAdmin: Boolean = false
     private var mountainList = mutableListOf<Mountain>()
+    private var userList = mutableListOf<String>()
+
     private lateinit var adapter: MountainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +36,11 @@ class MontaniasActivity : AppCompatActivity() {
         listView = findViewById(R.id.listView_montanas)
 
         mountainDB = MountainDatabaseHelper(this)
+        userDB = UserDatabaseHelper(this)
+
+        userList = userDB.obtenerTodosLosUsuarios().toMutableList()
+        userList.remove("admin")
+
         adapter = MountainAdapter(this, mountainList)
         listView.adapter = adapter
 
@@ -64,8 +73,8 @@ class MontaniasActivity : AppCompatActivity() {
         val etAltura = dialogView.findViewById<EditText>(R.id.et_altura)
         val spinnerUsuario = dialogView.findViewById<Spinner>(R.id.spinner_usuario)
         // Carga el spinner con los dos usuarios disponibles
-        val usuarios = listOf("invitado", "tu_usuario")
-        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, usuarios)
+
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userList)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerUsuario.adapter = spinnerAdapter
 

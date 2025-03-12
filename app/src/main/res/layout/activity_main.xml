@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#F8E8FF">
+    >
 
     <!-- Título -->
     <TextView

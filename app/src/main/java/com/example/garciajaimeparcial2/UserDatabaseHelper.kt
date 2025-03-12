@@ -23,17 +23,27 @@ class UserDatabaseHelper(context: Context) :
         db?.execSQL(createTable)
 
         // Inserta los usuarios precargados
-        insertUser(db, "admin", "admin")
-        insertUser(db, "invitado", "guess")
-        insertUser(db, "tu_usuario", "tu_contraseña")
+        insertUserDirect( db,"admin", "admin")
+        insertUserDirect( db,"invitado", "guess")
+        insertUserDirect(db,"jaime", "jaime")
     }
 
-    private fun insertUser(db: SQLiteDatabase?, username: String, password: String) {
+    private fun insertUserDirect(db: SQLiteDatabase?, username: String, password: String) {
         val values = ContentValues().apply {
             put(COLUMN_USERNAME, username)
             put(COLUMN_PASSWORD, password)
         }
         db?.insert(TABLE_USERS, null, values)
+    }
+
+    fun insertUser( username: String, password: String): Boolean {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_USERNAME, username)
+            put(COLUMN_PASSWORD, password)
+        }
+        val resultado = db?.insert(TABLE_USERS, null, values)
+        return resultado != -1L
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -49,4 +59,23 @@ class UserDatabaseHelper(context: Context) :
         cursor.close()
         return exists
     }
+
+
+    fun obtenerTodosLosUsuarios(): List<String> {
+        val usuarios = mutableListOf<String>()
+        val db = readableDatabase
+        val query = "SELECT $COLUMN_USERNAME FROM $TABLE_USERS"
+        val cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME))
+                usuarios.add(username)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        return usuarios
+    }
+
 }

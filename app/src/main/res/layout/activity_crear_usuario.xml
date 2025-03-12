@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="Inciar Sesión"
+        android:text="Crear usuario"
         android:textSize="30dp"
         android:gravity="center"
         />
@@ -26,42 +26,40 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
- />
+        />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="@string/prompt_password"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
- />
-
-    <LinearLayout
+        />
+    <EditText
+        android:id="@+id/password2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="30dp"
+        android:hint="Confirmar contraseña"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="true"
+        />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:text="Login" />
+    <Button
+        android:id="@+id/crear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="40dp"
+        android:text="Crear"
+        />
 
-        <Button
-            android:id="@+id/crearUsuario"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:text="Crear usuario"
-            android:layout_marginStart="16dp" />
-    </LinearLayout>
+
 
 </LinearLayout>
