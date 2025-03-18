@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Multimedia">
+    <Button
+        android:id="@+id/playMp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play MediaPlayer"/>
+
+    <Button
+        android:id="@+id/pauseMp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause MediaPlayer"/>
+    <Button
+        android:id="@+id/stopMp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop MediaPlayer"/>
+    <Button
+        android:id="@+id/playSp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SoundPool"/>
+</LinearLayout>

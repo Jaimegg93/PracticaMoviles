@@ -35,10 +35,20 @@
 
     <!-- Botón -->
     <Button
-        android:id="@+id/loginImageView"
+    android:id="@+id/loginImageView"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:text="Mis Montañas"
+    android:background="@drawable/boton_redondeado"
+    android:textColor="#FFFFFF"
+    android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/multimedia"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:text="Mis Montañas"
+        android:layout_marginTop="20dp"
+        android:text="Multimedia"
         android:background="@drawable/boton_redondeado"
         android:textColor="#FFFFFF"
         android:layout_gravity="center"/>

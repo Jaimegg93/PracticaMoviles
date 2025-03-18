@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val calculadoraImageView: ImageView = findViewById(R.id.calculadoraImageView)
         val botonImageView: Button = findViewById(R.id.loginImageView)
+        val botonAudios: Button = findViewById(R.id.multimedia)
 
         calculadoraImageView.setOnClickListener {
             val intent = Intent(this, calculadora::class.java)
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Log_In::class.java)
             startActivity(intent)
         }
-
+        botonAudios.setOnClickListener {
+            val intent = Intent(this, MultimediaVideo::class.java)
+            startActivity(intent)
+        }
     }
 }
