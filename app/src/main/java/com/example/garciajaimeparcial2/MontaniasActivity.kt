@@ -126,29 +126,14 @@ class MontaniasActivity : AppCompatActivity() {
     }
 
     private fun showModifyMountainDialog(mountain: Mountain) {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_modify_mountain, null)
-        val tvNombre = dialogView.findViewById<TextView>(R.id.tv_nombre) // campo no editable
-        val etAltura = dialogView.findViewById<EditText>(R.id.et_altura)
-        tvNombre.text = mountain.nombre
-        etAltura.setText(mountain.altura.toString())
+        val dialogView = layoutInflater.inflate(R.layout.dialog_salir, null)
+        val titulo = dialogView.findViewById<TextView>(R.id.tvTitulo) // campo no editable
+        val mensaje = dialogView.findViewById<EditText>(R.id.tvMensaje)
 
         AlertDialog.Builder(this)
-            .setTitle("Modificar montaña")
             .setView(dialogView)
             .setPositiveButton("Guardar") { _, _ ->
-                val nuevaAlturaStr = etAltura.text.toString()
-                val nuevaAltura = nuevaAlturaStr.toIntOrNull()
-                if (nuevaAltura != null) {
-                    val updated = mountainDB.updateMountain(mountain.nombre, mountain.usuario, nuevaAltura)
-                    if (updated) {
-                        Log.d("MontaniasActivity", "Montaña modificada: ${mountain.nombre}")
-                        loadMountains()
-                    } else {
-                        Toast.makeText(this, "Error al modificar montaña", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(this, "Altura inválida", Toast.LENGTH_SHORT).show()
-                }
+
             }
             .setNegativeButton("Cancelar", null)
             .create().show()
