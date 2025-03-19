@@ -6,7 +6,6 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -63,6 +62,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MultimediaVideo::class.java)
             startActivity(intent)
         }
+
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         toolbar.setTitle("Mi Aplicación")
         toolbar.setOnMenuItemClickListener { item ->
@@ -103,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-        private fun mostrarDialogoSalir() {
+    private fun mostrarDialogoSalir() {
             AlertDialog.Builder(this)
                 .setTitle("Salir")
                 .setMessage("Se va a cerrar la aplicación, ¿está seguro de querer salir?")
@@ -114,5 +115,5 @@ class MainActivity : AppCompatActivity() {
                     dialog.dismiss()
                 }
                 .show()
-        }
     }
+}
